@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Arbor-Nikica Asanin</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+
+
+
+    <!-- Page Content -->
+    <div class="container" ng-app="arborApp" ng-controller="homePageController">
+
+        <div class="row">
+            <div class="col-lg-3 col-sm-4 text-center card"  ng-repeat="student in students">
+                <img class="img-circle img-responsive img-center" src="{{ student.image }}" alt="">
+               <h4>{{ student.firstName }} {{ student.lastName }}</h4>
+                <div class="col-lg-12">
+                    <ul class="list" id="list{{ student.id }}">
+                        <li><button type="button" ng-click="doPresent(student)" class="btn btn-default hvr-float" id="btn-default"><span class="glyphicon glyphicon-ok" id="icon-present" aria-hidden="true"></span></button></li>
+                        <li><button type="button" ng-click="doLate(student)" class="btn btn-default hvr-float" id="btn-default"><span class="glyphicon glyphicon-time" id="icon-late" aria-hidden="true"></span></button></li>
+                        <li><button type="button" ng-click="doAbsent(student)" class="btn btn-default hvr-float" id="btn-default"><span class="glyphicon glyphicon-remove" id="icon-absent" aria-hidden="true"></span></button></li>
+                    </ul>
+                    <ul id="marked{{ student.id }}" class="marked" style="display:none;">
+                        <li><button type="button" class="btn btn-default hvr-push" disabled><span id="icon{{ student.id }}" aria-hidden="true"></span></button></li>
+                        <li><p id="text{{ student.id }}"></p></li>
+                    </ul>
+
+                </div>
+            </div>
+           
+
+        </div>
+
+        <hr/>
+
+
+        <div class="row">
+            <ul class="display-list">
+                <li><strong>Present:</strong><span ng-bind="present.length">0</span></li>
+                <li><strong>Late:</strong><span ng-bind="late.length">0</span></li>
+                <li><strong>Absent:</strong><span ng-bind="absent.length">0</span></li>
+                <li><strong>Unmarked:</strong><span ng-bind="unmarked">0</span></li>
+
+                <li class="button-choise"><button type="button" id="iconResetBtn" ng-click="doReset()" class="btn btn-default">Reset</button></li>
+                <li class="button-choise"><button type="button" ng-click="doDone()" class="btn btn-default">Done</button></li>
+            </ul>
+
+
+        </div>
+         <div id="statsModal" class="modal fade" role="dialog">
+              <div class="modal-dialog">
+
+                <!-- Modal content-->
+                <div class="modal-content">
+                  <div class="modal-header alert alert-success">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Output list </h4>
+                  </div>
+                  <div class="modal-body">
+                    <p id="modaltable">
+                        <h4> Students attended</h4>
+                        <table>
+                        <tr ng-repeat="student in present">
+                            <td>{{ student.firstName }} {{ student.lastName }}</td>
+                        </tr>
+                        </table>
+                          <h4> Students late</h4>
+                        <table>
+                        <tr ng-repeat="student in late">
+                            <td>{{ student.firstName }} {{ student.lastName }}</td>
+                        </tr>
+                        </table>
+                          <h4> Students absent</h4>
+                        <table>
+                        <tr ng-repeat="student in absent">
+                            <td>{{ student.firstName }} {{ student.lastName }}</td>
+                        </tr>
+                        </table>
+                    </p>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                  </div>
+                </div>
+
+              </div>
+        </div>
+        <div id="warningModal" class="modal fade bd-example-modal-sm" role="dialog">
+              <div class="modal-dialog modal-sm">
+
+                <!-- Modal content-->
+                <div class="modal-content error-modal-text">
+                  <div class="modal-header alert alert-danger">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Warning </h4>
+                  </div>
+                  <div class="modal-body">
+                    <p>
+                        Some students have not been marked. Please marked them and then click Done.
+                    </p>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                  </div>
+                </div>
+
+              </div>
+        </div>
+        
+    </div>
+    <!-- /.container -->
+
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Angular -->
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <script src="js/app.js"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,152 @@
+@font-face {
+    font-family: textFont;
+    src: url(../fonts/Aileron-Light.otf);
+}
+body{
+	padding-top: 10px;
+	font-family: textFont;
+}
+p{
+	margin: 0px;
+}
+.img-center {
+	margin: 0 auto;
+}
+.card > img{
+	width: 130px;
+}
+footer {
+    margin: 50px 0;
+}
+.card{
+	border: 1px solid #F8F8FF;
+
+}
+.list{
+	list-style: none;
+	padding: 0px;
+	margin: 0px;
+	border: 1px solid #DCDCDE;
+
+}
+.list > li{
+	display: inline-block;
+	padding: 10px 13px 10px 13px;
+}
+.marked{
+	list-style: none;
+	padding: 0px;
+	border: 1px solid #DCDCDE;
+	       margin-bottom: 0px;
+}
+.marked > li{
+	display: inline-block;
+	padding: 10px 13px 10px 13px;
+}
+.display-list{
+	list-style: none;
+
+}
+.display-list > li > span{
+	padding: 5px;
+}
+.display-list > li{
+	padding: 13px;
+	display: inline-block;
+}
+#btn-default:hover #icon-present{
+	color: #58D68D;
+}
+#btn-default:hover #icon-late{
+	color: #F4D03F;
+}
+#btn-default:hover #icon-absent{
+	color: #CD6155;
+}
+
+.icon-present{
+	color: #58D68D;
+}
+.icon-late{
+color: #F4D03F;
+}
+.icon-absent{
+	color: #CD6155;
+}
+/* Push button */
+@-webkit-keyframes hvr-push {
+  50% {
+    -webkit-transform: scale(0.8);
+    transform: scale(0.8);
+  }
+
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}
+
+@keyframes hvr-push {
+  50% {
+    -webkit-transform: scale(0.8);
+    transform: scale(0.8);
+  }
+
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}
+
+.hvr-push {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -moz-osx-font-smoothing: grayscale;
+    -webkit-animation-name: hvr-push;
+  animation-name: hvr-push;
+  -webkit-animation-duration: 0.3s;
+  animation-duration: 0.3s;
+  -webkit-animation-timing-function: linear;
+  animation-timing-function: linear;
+  -webkit-animation-iteration-count: 1;
+  animation-iteration-count: 1;
+}
+/* Float button */
+.hvr-float {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-property: transform;
+  transition-property: transform;
+  -webkit-transition-timing-function: ease-out;
+  transition-timing-function: ease-out;
+}
+.hvr-float:hover, .hvr-float:focus, .hvr-float:active {
+  -webkit-transform: translateY(-8px);
+  transform: translateY(-8px);
+}
+
+.error-modal-text{
+	text-align: center;
+}
+/*Responsive*/
+@media screen and (max-width: 991px) {
+    .list > li {
+    padding: 10px;
+	}
+	.marked > li {
+    padding: 10px;
+	}
+}
